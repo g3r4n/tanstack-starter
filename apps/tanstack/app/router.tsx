@@ -27,15 +27,13 @@ export function createRouter() {
       hydrate(queryClient, dehydratedQueryClient);
     },
     Wrap: ({ children }) => (
-      <ThemeProvider>
-        <SessionProvider>
-          <trpc.Provider client={trpcClient} queryClient={queryClient}>
-            <QueryClientProvider client={queryClient}>
-              {children}
-            </QueryClientProvider>
-          </trpc.Provider>
-        </SessionProvider>
-      </ThemeProvider>
+      <SessionProvider>
+        <trpc.Provider client={trpcClient} queryClient={queryClient}>
+          <QueryClientProvider client={queryClient}>
+            {children}
+          </QueryClientProvider>
+        </trpc.Provider>
+      </SessionProvider>
     ),
   });
 

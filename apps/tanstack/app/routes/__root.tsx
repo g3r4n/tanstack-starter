@@ -8,6 +8,7 @@ import {
 import { Body, Head, Html, Meta, Scripts } from "@tanstack/start";
 
 import type { RouterAppContext } from "../types";
+import { ThemeProvider } from "../../../../packages/ui/src/theme";
 import appCss from "../globals.css?url";
 
 if (typeof window !== "undefined" && !window.process) {
@@ -56,7 +57,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <Meta />
       </Head>
       <Body>
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
         <ScrollRestoration />
         <Scripts />
       </Body>
