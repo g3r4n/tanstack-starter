@@ -1,11 +1,8 @@
-import type {
-  DefaultSession,
-  NextAuthConfig,
-  Session as NextAuthSession,
-} from "next-auth";
-import { skipCSRFCheck } from "@auth/core";
+import type { AuthConfig } from "@auth/core";
+import type { DefaultSession } from "@auth/core/types";
+import { Auth, createActionURL, skipCSRFCheck } from "@auth/core";
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
-import Discord from "next-auth/providers/discord";
+import Google from "next-auth/providers/google";
 
 import { db } from "@acme/db/client";
 import { Account, Session, User } from "@acme/db/schema";
@@ -29,6 +26,8 @@ const adapter = DrizzleAdapter(db, {
 export const isSecureContext = env.NODE_ENV !== "development";
 
 export const authConfig = {
+  basePath: "/api/auth",
+  trustHost: true,
   adapter,
   // In development, we need to skip checks to allow Expo to work
   ...(!isSecureContext
@@ -38,7 +37,12 @@ export const authConfig = {
       }
     : {}),
   secret: env.AUTH_SECRET,
-  providers: [Discord],
+  providers: [
+    Google({
+      clientId: env.AUTH_GOOGLE_ID,
+      clientSecret: env.AUTH_GOOGLE_SECRET,
+    }),
+  ],
   callbacks: {
     session: (opts) => {
       if (!("user" in opts))
@@ -53,24 +57,21 @@ export const authConfig = {
       };
     },
   },
-} satisfies NextAuthConfig;
+} satisfies AuthConfig;
 
-export const validateToken = async (
-  token: string,
-): Promise<NextAuthSession | null> => {
-  const sessionToken = token.slice("Bearer ".length);
-  const session = await adapter.getSessionAndUser?.(sessionToken);
-  return session
-    ? {
-        user: {
-          ...session.user,
-        },
-        expires: session.session.expires.toISOString(),
-      }
-    : null;
-};
+export async function getSession(req: Request) {
+  const parsedUrl = new URL(req.url);
+  const url = createActionURL(
+    "session",
+    parsedUrl.protocol,
+    req.headers,
+    env,
+    authConfig.basePath,
+  );
+  const request = new Request(url, {
+    headers: { cookie: req.headers.get("cookie") ?? "" },
+  });
 
-export const invalidateSessionToken = async (token: string) => {
-  const sessionToken = token.slice("Bearer ".length);
-  await adapter.deleteSession?.(sessionToken);
-};
+  const sessionData = await Auth(request, authConfig);
+  return (await sessionData.json()) as DefaultSession;
+}

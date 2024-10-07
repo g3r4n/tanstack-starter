@@ -1,13 +1,16 @@
 import type { Config } from "drizzle-kit";
+import { createEnv } from "@t3-oss/env-core";
+import * as z from "zod";
 
-if (!process.env.POSTGRES_URL) {
-  throw new Error("Missing POSTGRES_URL");
-}
-
-const nonPoolingUrl = process.env.POSTGRES_URL.replace(":6543", ":5432");
-
+const env = createEnv({
+  server: {
+    DATABASE_URL: z.string(),
+  },
+  runtimeEnv: process.env,
+  emptyStringAsUndefined: true,
+});
 export default {
   schema: "./src/schema.ts",
   dialect: "postgresql",
-  dbCredentials: { url: nonPoolingUrl },
+  dbCredentials: { url: env.DATABASE_URL },
 } satisfies Config;

@@ -1,9 +1,8 @@
-"use client";
-
 import type { RouterOutputs } from "@acme/api";
 import { CreatePostSchema } from "@acme/db/schema";
 import { cn } from "@acme/ui";
-import { Button } from "@acme/ui/button";
+
+import { Button } from "../../../../packages/ui/src/button";
 import {
   Form,
   FormControl,
@@ -11,11 +10,10 @@ import {
   FormItem,
   FormMessage,
   useForm,
-} from "@acme/ui/form";
-import { Input } from "@acme/ui/input";
-import { toast } from "@acme/ui/toast";
-
-import { api } from "~/trpc/react";
+} from "../../../../packages/ui/src/form";
+import { Input } from "../../../../packages/ui/src/input";
+import { toast } from "../../../../packages/ui/src/toast";
+import { trpc } from "../trpc";
 
 export function CreatePostForm() {
   const form = useForm({
@@ -26,8 +24,8 @@ export function CreatePostForm() {
     },
   });
 
-  const utils = api.useUtils();
-  const createPost = api.post.create.useMutation({
+  const utils = trpc.useUtils();
+  const createPost = trpc.post.create.useMutation({
     onSuccess: async () => {
       form.reset();
       await utils.post.invalidate();
@@ -80,7 +78,7 @@ export function CreatePostForm() {
 }
 
 export function PostList() {
-  const [posts] = api.post.all.useSuspenseQuery();
+  const [posts] = trpc.post.all.useSuspenseQuery();
 
   if (posts.length === 0) {
     return (
@@ -108,8 +106,8 @@ export function PostList() {
 export function PostCard(props: {
   post: RouterOutputs["post"]["all"][number];
 }) {
-  const utils = api.useUtils();
-  const deletePost = api.post.delete.useMutation({
+  const utils = trpc.useUtils();
+  const deletePost = trpc.post.delete.useMutation({
     onSuccess: async () => {
       await utils.post.invalidate();
     },
