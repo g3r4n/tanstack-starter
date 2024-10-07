@@ -57,7 +57,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <Meta />
       </Head>
       <Body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
         <ScrollRestoration />
         <Scripts />
       </Body>
