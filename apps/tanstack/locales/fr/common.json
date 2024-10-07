@@ -1,0 +1,11 @@
+{
+  "Create": "Créer",
+  "No posts yet": "Pas encore de messages",
+  "Delete": "Supprimer",
+  "Content": "Contenu",
+  "Title": "Titre",
+  "Loading": "Chargement...",
+  "Logged in as {{ userName }}": "Connecté en tant que {{ userName }}",
+  "Sign in with Google": "Connectez-vous avec Google",
+  "Sign out": "se déconnecter"
+}

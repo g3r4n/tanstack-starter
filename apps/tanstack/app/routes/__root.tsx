@@ -12,6 +12,10 @@ import { ThemeProvider } from "@acme/ui/theme";
 import type { RouterAppContext } from "../types";
 import appCss from "../globals.css?url";
 
+import "../i18n";
+
+import { useTranslation } from "react-i18next";
+
 if (typeof window !== "undefined" && !window.process) {
   console.log("window.process", window.process);
   window.process = {} as any;
@@ -52,6 +56,7 @@ function RootComponent() {
 }
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+  const { ready } = useTranslation();
   return (
     <Html>
       <Head>
@@ -60,7 +65,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <Body>
         <ClickToComponent editor="cursor" />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
+          {ready ? children : null}
         </ThemeProvider>
         <ScrollRestoration />
         <Scripts />

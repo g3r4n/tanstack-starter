@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 import type { RouterOutputs } from "@acme/api";
 import { CreatePostSchema } from "@acme/db/schema";
 import { cn } from "@acme/ui";
@@ -16,6 +18,7 @@ import { toast } from "@acme/ui/toast";
 import { trpc } from "../trpc";
 
 export function CreatePostForm() {
+  const { t } = useTranslation();
   const form = useForm({
     schema: CreatePostSchema,
     defaultValues: {
@@ -53,7 +56,7 @@ export function CreatePostForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input {...field} placeholder="Title" />
+                <Input {...field} placeholder={t("Title")} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -65,19 +68,20 @@ export function CreatePostForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input {...field} placeholder="Content" />
+                <Input {...field} placeholder={t("Content")} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button>Create</Button>
+        <Button>{t("Create")}</Button>
       </form>
     </Form>
   );
 }
 
 export function PostList() {
+  const { t } = useTranslation();
   const [posts] = trpc.post.all.useSuspenseQuery();
 
   if (posts.length === 0) {
@@ -88,7 +92,7 @@ export function PostList() {
         <PostCardSkeleton pulse={false} />
 
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/10">
-          <p className="text-2xl font-bold text-white">No posts yet</p>
+          <p className="text-2xl font-bold text-white">{t("No posts yet")}</p>
         </div>
       </div>
     );
@@ -106,6 +110,7 @@ export function PostList() {
 export function PostCard(props: {
   post: RouterOutputs["post"]["all"][number];
 }) {
+  const { t } = useTranslation();
   const utils = trpc.useUtils();
   const deletePost = trpc.post.delete.useMutation({
     onSuccess: async () => {
@@ -132,7 +137,7 @@ export function PostCard(props: {
           className="cursor-pointer text-sm font-bold uppercase text-primary hover:bg-transparent hover:text-white"
           onClick={() => deletePost.mutate(props.post.id)}
         >
-          Delete
+          {t("Delete")}
         </Button>
       </div>
     </div>

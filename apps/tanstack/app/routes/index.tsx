@@ -4,6 +4,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ThemeToggle } from "@acme/ui/theme";
 
 import { AuthShowcase } from "../_components/auth-showcase";
+import { LangToggle } from "../_components/LangToggle";
 import {
   CreatePostForm,
   PostCardSkeleton,
@@ -25,7 +26,8 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <main className="container h-screen py-16">
-      <div className="absolute right-8 top-8">
+      <div className="absolute right-8 top-8 flex gap-2">
+        <LangToggle />
         <ThemeToggle />
       </div>
       <div className="flex flex-col items-center justify-center gap-4">

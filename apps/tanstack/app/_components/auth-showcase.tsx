@@ -1,12 +1,14 @@
 import { signIn, signOut, useSession } from "next-auth/react";
+import { useTranslation } from "react-i18next";
 
 import { Button } from "@acme/ui/button";
 
 export function AuthShowcase() {
   const session = useSession();
+  const { t } = useTranslation();
 
   if (session.status === "loading") {
-    return <div>Loading...</div>;
+    return <div>{t("Loading")} ...</div>;
   }
 
   if (!session.data?.user) {
@@ -17,7 +19,7 @@ export function AuthShowcase() {
           signIn("google");
         }}
       >
-        Sign in with Google
+        {t("Sign in with Google")}
       </Button>
     );
   }
@@ -25,7 +27,11 @@ export function AuthShowcase() {
   return (
     <div className="flex flex-col items-center justify-center gap-4">
       <p className="text-center text-2xl">
-        <span>Logged in as {session.data.user.name}</span>
+        <span>
+          {t("Logged in as {{ userName }}", {
+            userName: session.data.user.name ?? "unknown",
+          })}
+        </span>
       </p>
 
       <form>
@@ -35,7 +41,7 @@ export function AuthShowcase() {
             signOut();
           }}
         >
-          Sign out
+          {t("Sign out")}
         </Button>
       </form>
     </div>
