@@ -1,11 +1,11 @@
 import * as React from "react";
 import {
-  createRootRoute,
   createRootRouteWithContext,
   Outlet,
   ScrollRestoration,
 } from "@tanstack/react-router";
 import { Body, Head, Html, Meta, Scripts } from "@tanstack/start";
+import { ClickToComponent } from "click-to-react-component";
 
 import type { RouterAppContext } from "../types";
 import { ThemeProvider } from "../../../../packages/ui/src/theme";
@@ -57,6 +57,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <Meta />
       </Head>
       <Body>
+        <ClickToComponent editor="cursor" />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>

@@ -294,6 +294,9 @@ importers:
       autoprefixer:
         specifier: 10.4.20
         version: 10.4.20(postcss@8.4.47)
+      click-to-react-component:
+        specifier: 1.1.0
+        version: 1.1.0(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       dotenv-cli:
         specifier: ^7.4.2
         version: 7.4.2
@@ -2323,11 +2326,27 @@ packages:
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
 
+  '@floating-ui/core@0.6.2':
+    resolution: {integrity: sha512-jktYRmZwmau63adUG3GKOAVCofBXkk55S/zQ94XOorAHhwqFIOFAy1rSp2N0Wp6/tGbe9V3u/ExlGZypyY17rg==}
+
   '@floating-ui/core@1.6.7':
     resolution: {integrity: sha512-yDzVT/Lm101nQ5TCVeK65LtdN7Tj4Qpr9RTXJ2vPFLqtLxwOrpoxAHAJI8J3yYWUc40J0BDBheaitK5SJmno2g==}
 
+  '@floating-ui/dom@0.4.5':
+    resolution: {integrity: sha512-b+prvQgJt8pieaKYMSJBXHxX/DYwdLsAWxKYqnO5dO2V4oo/TYBZJAUQCVNjTWWsrs6o4VDrNcP9+E70HAhJdw==}
+
   '@floating-ui/dom@1.6.10':
     resolution: {integrity: sha512-fskgCFv8J8OamCmyun8MfjB1Olfn+uZKjOKZ0vhYF3gRmEUXcGOjxWL8bBr7i4kIuPZ2KD2S3EUIOxnjC8kl2A==}
+
+  '@floating-ui/react-dom-interactions@0.3.1':
+    resolution: {integrity: sha512-tP2KEh7EHJr5hokSBHcPGojb+AorDNUf0NYfZGg/M+FsMvCOOsSEeEF0O1NDfETIzDnpbHnCs0DuvCFhSMSStg==}
+    deprecated: Package renamed to @floating-ui/react
+
+  '@floating-ui/react-dom@0.6.3':
+    resolution: {integrity: sha512-hC+pS5D6AgS2wWjbmSQ6UR6Kpy+drvWGJIri6e1EDGADTPsCaa4KzCgmCczHrQeInx9tqs81EyDmbKJYY2swKg==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
 
   '@floating-ui/react-dom@2.1.1':
     resolution: {integrity: sha512-4h84MJt3CHrtG18mGsXuLCHMrug49d7DFkU0RMIyshRveBeyV2hmV/pDaF2Uxtu8kgq5r46llp5E5FQiR0K2Yg==}
@@ -4211,6 +4230,11 @@ packages:
     resolution: {integrity: sha512-FxqpkPPwu1HjuN93Omfm4h8uIanXofW0RxVEW3k5RKx+mJJYSthzNhp32Kzxxy3YAEZ/Dc/EWN1vZRY0+kOhbw==}
     engines: {node: '>= 10'}
 
+  click-to-react-component@1.1.0:
+    resolution: {integrity: sha512-/DjZemufS1BkxyRgZL3r7HXVVOFRWVQi5Xd4EBnjxZMwrHEh0OlUVA2N9CjXkZ0x8zMf8dL1cKnnx+xUWUg4VA==}
+    peerDependencies:
+      react: '>=16.8.0'
+
   client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
 
@@ -5525,6 +5549,9 @@ packages:
   hosted-git-info@3.0.8:
     resolution: {integrity: sha512-aXpmwoOhRBrw6X3j0h5RloK4x1OzsxMPyxqIHyNfSe2pypkVTZFpEiRoSipPEPlMrh0HW/XsjkJ5WgnCirpNUw==}
     engines: {node: '>=10'}
+
+  htm@3.1.1:
+    resolution: {integrity: sha512-983Vyg8NwUE7JkZ6NmOqpCZ+sh1bKv2iYTlUkzlWmA5JD2acKoxd4KVxbMmxX/85mtfdnDmTFoNKcg5DGAvxNQ==}
 
   http-errors@2.0.0:
     resolution: {integrity: sha512-FtwrG/euBzaEjYeRqOgly7G0qviiXoJWnvEH2Z1plBdXgbyjv34pHTSb9zoeHMyDy33+DWy5Wt9Wo+TURtOYSQ==}
@@ -7007,6 +7034,9 @@ packages:
     resolution: {integrity: sha512-NCrCHhWmnQklfH4MtJMRjZ2a8c80qXeMlQMv2uVp9ISJMTt562SbGd6n2oq0PaPgKm7Z6pL9E2UlLIhC+SHL3w==}
     engines: {node: '>=4.0.0'}
 
+  point-in-polygon@1.1.0:
+    resolution: {integrity: sha512-3ojrFwjnnw8Q9242TzgXuTD+eKiutbzyslcq1ydfu82Db2y+Ogbmyrkpv0Hgj31qwT3lbS9+QAAO/pIQM35XRw==}
+
   possible-typed-array-names@1.0.0:
     resolution: {integrity: sha512-d7Uw+eZoloe0EHDIYoe+bQ5WXnGMOpmiZFTuMWCwpjzzkL2nTjcKiAk4hh8TjnGye2TwWOk3UXucZ+3rbmBa8Q==}
     engines: {node: '>= 0.4'}
@@ -7287,6 +7317,9 @@ packages:
 
   react-is@18.3.1:
     resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
+
+  react-merge-refs@1.1.0:
+    resolution: {integrity: sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==}
 
   react-native-css-interop@0.0.34:
     resolution: {integrity: sha512-gz9b0RAyqy5Q/ogPQie8zkWHI+UFhn8JOPELUAV4k2XNkuXzfPRWDMSjQww51ozh7qx7oBKSYDnaCB/D6XgJ1Q==}
@@ -8473,6 +8506,15 @@ packages:
     engines: {node: '>=10'}
     peerDependencies:
       '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+
+  use-isomorphic-layout-effect@1.1.2:
+    resolution: {integrity: sha512-49L8yCO3iGT/ZF9QttjwLF/ZD9Iwto5LnH5LmEdk/6cFmXddqi2ulF0edxTwjj+7mqvpVVGQWvbXZdn32wRSHA==}
+    peerDependencies:
+      '@types/react': '*'
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     peerDependenciesMeta:
       '@types/react':
@@ -10783,14 +10825,40 @@ snapshots:
 
   '@fastify/busboy@2.1.1': {}
 
+  '@floating-ui/core@0.6.2': {}
+
   '@floating-ui/core@1.6.7':
     dependencies:
       '@floating-ui/utils': 0.2.7
+
+  '@floating-ui/dom@0.4.5':
+    dependencies:
+      '@floating-ui/core': 0.6.2
 
   '@floating-ui/dom@1.6.10':
     dependencies:
       '@floating-ui/core': 1.6.7
       '@floating-ui/utils': 0.2.7
+
+  '@floating-ui/react-dom-interactions@0.3.1(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@floating-ui/react-dom': 0.6.3(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      aria-hidden: 1.2.4
+      point-in-polygon: 1.1.0
+      use-isomorphic-layout-effect: 1.1.2(@types/react@18.3.3)(react@18.3.1)
+    transitivePeerDependencies:
+      - '@types/react'
+      - react
+      - react-dom
+
+  '@floating-ui/react-dom@0.6.3(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@floating-ui/dom': 0.4.5
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      use-isomorphic-layout-effect: 1.1.2(@types/react@18.3.3)(react@18.3.1)
+    transitivePeerDependencies:
+      - '@types/react'
 
   '@floating-ui/react-dom@2.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -13105,6 +13173,16 @@ snapshots:
 
   cli-width@3.0.0: {}
 
+  click-to-react-component@1.1.0(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      '@floating-ui/react-dom-interactions': 0.3.1(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      htm: 3.1.1
+      react: 18.3.1
+      react-merge-refs: 1.1.0
+    transitivePeerDependencies:
+      - '@types/react'
+      - react-dom
+
   client-only@0.0.1: {}
 
   clipboardy@4.0.0:
@@ -14683,6 +14761,8 @@ snapshots:
   hosted-git-info@3.0.8:
     dependencies:
       lru-cache: 6.0.0
+
+  htm@3.1.1: {}
 
   http-errors@2.0.0:
     dependencies:
@@ -16371,6 +16451,8 @@ snapshots:
 
   pngjs@3.4.0: {}
 
+  point-in-polygon@1.1.0: {}
+
   possible-typed-array-names@1.0.0: {}
 
   postcss-import@15.1.0(postcss@8.4.47):
@@ -16595,6 +16677,8 @@ snapshots:
   react-is@17.0.2: {}
 
   react-is@18.3.1: {}
+
+  react-merge-refs@1.1.0: {}
 
   react-native-css-interop@0.0.34(@babel/core@7.25.2)(react-native-reanimated@3.10.1(@babel/core@7.25.2)(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(bufferutil@4.0.8)(react@18.3.1))(react@18.3.1))(react-native-safe-area-context@4.10.8(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(bufferutil@4.0.8)(react@18.3.1))(react@18.3.1))(react-native@0.74.5(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))(@types/react@18.3.3)(bufferutil@4.0.8)(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.10(ts-node@10.9.2(@types/node@22.3.0)(typescript@5.5.4))):
     dependencies:
@@ -17902,6 +17986,12 @@ snapshots:
     dependencies:
       react: 18.3.1
       tslib: 2.6.3
+    optionalDependencies:
+      '@types/react': 18.3.3
+
+  use-isomorphic-layout-effect@1.1.2(@types/react@18.3.3)(react@18.3.1):
+    dependencies:
+      react: 18.3.1
     optionalDependencies:
       '@types/react': 18.3.3
 
