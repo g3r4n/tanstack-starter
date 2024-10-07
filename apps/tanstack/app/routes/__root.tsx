@@ -1,11 +1,13 @@
 import * as React from "react";
 import {
   createRootRoute,
+  createRootRouteWithContext,
   Outlet,
   ScrollRestoration,
 } from "@tanstack/react-router";
 import { Body, Head, Html, Meta, Scripts } from "@tanstack/start";
 
+import type { RouterAppContext } from "../types";
 import appCss from "../globals.css?url";
 
 if (typeof window !== "undefined" && !window.process) {
@@ -13,7 +15,7 @@ if (typeof window !== "undefined" && !window.process) {
   window.process = {} as any;
 }
 
-export const Route = createRootRoute({
+export const Route = createRootRouteWithContext<RouterAppContext>()({
   meta: () => [
     {
       charSet: "utf-8",

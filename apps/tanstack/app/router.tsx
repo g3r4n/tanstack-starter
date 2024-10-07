@@ -1,4 +1,4 @@
-import { QueryClientProvider } from "@tanstack/react-query";
+import { dehydrate, hydrate, QueryClientProvider } from "@tanstack/react-query";
 import { createRouter as createTanStackRouter } from "@tanstack/react-router";
 import { createTRPCQueryUtils } from "@trpc/react-query";
 import { SessionProvider } from "next-auth/react";
@@ -14,9 +14,17 @@ export function createRouter() {
   });
   const router = createTanStackRouter({
     routeTree,
-    context: () => ({
-      trpcQueryUtils,
-    }),
+    context: { trpcQueryUtils },
+    dehydrate() {
+      return {
+        dehydratedQueryClient: dehydrate(queryClient, {
+          shouldDehydrateQuery: () => true,
+        }),
+      };
+    },
+    hydrate({ dehydratedQueryClient }) {
+      hydrate(queryClient, dehydratedQueryClient);
+    },
     Wrap: ({ children }) => (
       <SessionProvider>
         <trpc.Provider client={trpcClient} queryClient={queryClient}>

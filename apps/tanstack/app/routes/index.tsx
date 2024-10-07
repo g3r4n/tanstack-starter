@@ -15,6 +15,9 @@ if (typeof window !== "undefined" && !window.process) {
 
 export const Route = createFileRoute("/")({
   component: Home,
+  async loader({ context: { trpcQueryUtils } }) {
+    await trpcQueryUtils.post.all.ensureData();
+  },
 });
 
 function Home() {
