@@ -7,6 +7,7 @@ import {
   PostCardSkeleton,
   PostList,
 } from "../_components/posts";
+import { ThemeToggle } from "../../../../packages/ui/src/theme";
 
 if (typeof window !== "undefined" && !window.process) {
   console.log("window.process", window.process);
@@ -28,7 +29,7 @@ function Home() {
           Create <span className="text-primary">T3</span> Turbo
         </h1>
         <AuthShowcase />
-
+        <ThemeToggle />
         <CreatePostForm />
         <div className="w-full max-w-2xl overflow-y-scroll">
           <Suspense

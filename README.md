@@ -46,8 +46,8 @@ apps
   |   ├─ Navigation using Expo Router
   |   ├─ Tailwind using NativeWind
   |   └─ Typesafe API calls using tRPC
-  └─ next.js
-      ├─ Next.js 14
+  └─ tanstack
+      ├─ Tanstack Start with Tanstack router
       ├─ React 18
       ├─ Tailwind CSS
       └─ E2E Typesafe API Server & Client
@@ -55,7 +55,7 @@ packages
   ├─ api
   |   └─ tRPC v11 router definition
   ├─ auth
-  |   └─ Authentication using next-auth.
+  |   └─ Authentication using authjs.
   ├─ db
   |   └─ Typesafe db calls using Drizzle & Supabase
   └─ ui

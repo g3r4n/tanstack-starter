@@ -3,6 +3,7 @@ import { createRouter as createTanStackRouter } from "@tanstack/react-router";
 import { createTRPCQueryUtils } from "@trpc/react-query";
 import { SessionProvider } from "next-auth/react";
 
+import { ThemeProvider } from "../../../packages/ui/src/theme";
 import { routeTree } from "./routeTree.gen";
 import { getQueryClient, trpc, trpcClient } from "./trpc";
 
@@ -26,13 +27,15 @@ export function createRouter() {
       hydrate(queryClient, dehydratedQueryClient);
     },
     Wrap: ({ children }) => (
-      <SessionProvider>
-        <trpc.Provider client={trpcClient} queryClient={queryClient}>
-          <QueryClientProvider client={queryClient}>
-            {children}
-          </QueryClientProvider>
-        </trpc.Provider>
-      </SessionProvider>
+      <ThemeProvider>
+        <SessionProvider>
+          <trpc.Provider client={trpcClient} queryClient={queryClient}>
+            <QueryClientProvider client={queryClient}>
+              {children}
+            </QueryClientProvider>
+          </trpc.Provider>
+        </SessionProvider>
+      </ThemeProvider>
     ),
   });
 
