@@ -1,13 +1,14 @@
 import { Suspense } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
+import { ThemeToggle } from "@acme/ui/theme";
+
 import { AuthShowcase } from "../_components/auth-showcase";
 import {
   CreatePostForm,
   PostCardSkeleton,
   PostList,
 } from "../_components/posts";
-import { ThemeToggle } from "../../../../packages/ui/src/theme";
 
 if (typeof window !== "undefined" && !window.process) {
   console.log("window.process", window.process);
@@ -24,12 +25,14 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <main className="container h-screen py-16">
+      <div className="absolute right-8 top-8">
+        <ThemeToggle />
+      </div>
       <div className="flex flex-col items-center justify-center gap-4">
         <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
           Create <span className="text-primary">T3</span> Turbo
         </h1>
         <AuthShowcase />
-        <ThemeToggle />
         <CreatePostForm />
         <div className="w-full max-w-2xl overflow-y-scroll">
           <Suspense

@@ -7,8 +7,9 @@ import {
 import { Body, Head, Html, Meta, Scripts } from "@tanstack/start";
 import { ClickToComponent } from "click-to-react-component";
 
+import { ThemeProvider } from "@acme/ui/theme";
+
 import type { RouterAppContext } from "../types";
-import { ThemeProvider } from "../../../../packages/ui/src/theme";
 import appCss from "../globals.css?url";
 
 if (typeof window !== "undefined" && !window.process) {

@@ -1,6 +1,6 @@
 import { signIn, signOut, useSession } from "next-auth/react";
 
-import { Button } from "../../../../packages/ui/src/button";
+import { Button } from "@acme/ui/button";
 
 export function AuthShowcase() {
   const session = useSession();

@@ -1,8 +1,7 @@
 import type { RouterOutputs } from "@acme/api";
 import { CreatePostSchema } from "@acme/db/schema";
 import { cn } from "@acme/ui";
-
-import { Button } from "../../../../packages/ui/src/button";
+import { Button } from "@acme/ui/button";
 import {
   Form,
   FormControl,
@@ -10,9 +9,10 @@ import {
   FormItem,
   FormMessage,
   useForm,
-} from "../../../../packages/ui/src/form";
-import { Input } from "../../../../packages/ui/src/input";
-import { toast } from "../../../../packages/ui/src/toast";
+} from "@acme/ui/form";
+import { Input } from "@acme/ui/input";
+import { toast } from "@acme/ui/toast";
+
 import { trpc } from "../trpc";
 
 export function CreatePostForm() {
