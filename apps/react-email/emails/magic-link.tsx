@@ -8,8 +8,11 @@ import {
   Img,
   Link,
   Preview,
+  Tailwind,
   Text,
 } from "@react-email/components";
+
+import twConfig from "@acme/tailwind-config/web";
 
 interface MagicLinkEmailProps {
   url?: string;
@@ -24,36 +27,37 @@ export const MagicLinkEmail = ({ url }: MagicLinkEmailProps) => (
     <Head />
     <Preview>Log in with this magic link</Preview>
     <Body style={main}>
-      <Container style={container}>
-        <Img
-          src={`${baseUrl}/static/vercel-team.png`}
-          width="32"
-          height="32"
-          alt="Logo"
-        />
-        <Heading style={h1}>Login</Heading>
-        <Link
-          href={url}
-          target="_blank"
-          style={{
-            ...link,
-            display: "block",
-            marginBottom: "16px",
-          }}
-        >
-          Click here to log in with this magic link
-        </Link>
-        <Text
-          style={{
-            ...text,
-            color: "#ababab",
-            marginTop: "14px",
-            marginBottom: "16px",
-          }}
-        >
-          If you didn&apos;t try to login, you can safely ignore this email.
-        </Text>
-      </Container>
+      <Tailwind config={twConfig}>
+        <Container style={container}>
+          <Img
+            src={`${baseUrl}/static/vercel-team.png`}
+            className="h-8 w-8"
+            alt="Logo"
+          />
+          <Heading style={h1}>Login</Heading>
+          <Link
+            href={url}
+            target="_blank"
+            style={{
+              ...link,
+              display: "block",
+              marginBottom: "16px",
+            }}
+          >
+            Click here to log in with this magic link
+          </Link>
+          <Text
+            style={{
+              ...text,
+              color: "#ababab",
+              marginTop: "14px",
+              marginBottom: "16px",
+            }}
+          >
+            If you didn&apos;t try to login, you can safely ignore this email.
+          </Text>
+        </Container>
+      </Tailwind>
     </Body>
   </Html>
 );
