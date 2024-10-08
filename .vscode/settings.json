@@ -23,7 +23,10 @@
     "next/dist/client/router.d.ts"
   ],
   "typescript.tsdk": "node_modules/typescript/lib",
-  "i18n-ally.localesPaths": ["apps/tanstack/locales"],
+  "i18n-ally.localesPaths": [
+    "apps/tanstack/locales",
+    "apps/react-email/locales"
+  ],
   "i18n-ally.extract.keygenStrategy": "source",
   "i18n-ally.pathMatcher": "{locale}/{namespace}.json",
   "i18n-ally.enabledFrameworks": ["react-i18next"],
