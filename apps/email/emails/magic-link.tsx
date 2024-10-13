@@ -17,7 +17,7 @@ import "../locales/i18n";
 
 import twConfig from "@acme/tailwind-config/web";
 
-interface MagicLinkEmailProps {
+export interface MagicLinkEmailProps {
   url?: string;
   lang?: string;
 }

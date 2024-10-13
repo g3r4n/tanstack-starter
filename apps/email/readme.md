@@ -1,4 +1,4 @@
-# React Email Starter
+# Email
 
 A live preview right in your browser so you don't need to keep sending real emails during development.
 
