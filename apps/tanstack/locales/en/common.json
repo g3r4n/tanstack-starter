@@ -7,5 +7,6 @@
   "Sign out": "Sign out",
   "Loading": "Loading...",
   "Sign in with Google": "Sign in with Google",
-  "Logged in as {{ userName }}": "Logged in as {{ userName }}"
+  "Logged in as {{ userName }}": "Logged in as {{ userName }}",
+  "Sign in with magic link": "Sign in with magic link"
 }

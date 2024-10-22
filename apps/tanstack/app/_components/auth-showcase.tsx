@@ -13,14 +13,24 @@ export function AuthShowcase() {
 
   if (!session.data?.user) {
     return (
-      <Button
-        size="lg"
-        onClick={() => {
-          signIn("google");
-        }}
-      >
-        {t("Sign in with Google")}
-      </Button>
+      <div className="flex gap-2">
+        <Button
+          size="lg"
+          onClick={() => {
+            signIn("google");
+          }}
+        >
+          {t("Sign in with Google")}
+        </Button>
+        <Button
+          size="lg"
+          onClick={() => {
+            signIn("emailProvider", {}, { email: "enguerrand@des-vaux.fr" });
+          }}
+        >
+          {t("Sign in with magic link")}
+        </Button>
+      </div>
     );
   }
 

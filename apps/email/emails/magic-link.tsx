@@ -17,6 +17,8 @@ import "../locales/i18n";
 
 import twConfig from "@acme/tailwind-config/web";
 
+import i18n from "../locales/i18n";
+
 export interface MagicLinkEmailProps {
   url?: string;
   lang?: string;
@@ -26,8 +28,8 @@ const baseUrl = process.env.VERCEL_URL
   : "";
 
 export const MagicLinkEmail = ({ url, lang = "en" }: MagicLinkEmailProps) => {
-  const { t, i18n } = useTranslation();
   i18n.changeLanguage(lang);
+  const { t } = i18n;
   return (
     <Html lang={lang}>
       <Head />

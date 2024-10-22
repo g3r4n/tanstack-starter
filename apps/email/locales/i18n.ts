@@ -8,10 +8,10 @@ i18n.use(initReactI18next).init({
   defaultNS: "common",
   resources: {
     en: {
-      common: require("./en/common.json"),
+      common: import("./en/common.json"),
     },
     fr: {
-      common: require("./fr/common.json"),
+      common: import("./fr/common.json"),
     },
   },
   react: { useSuspense: false }, //this line

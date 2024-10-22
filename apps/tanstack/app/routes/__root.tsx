@@ -63,7 +63,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <Meta />
       </Head>
       <Body>
-        <ClickToComponent editor="cursor" />
+        <ClickToComponent editor="vscode" />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {ready ? children : null}
         </ThemeProvider>

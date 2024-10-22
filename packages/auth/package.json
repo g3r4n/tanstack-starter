@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@acme/db": "workspace:*",
+    "@acme/email": "workspace:^",
     "@auth/core": "0.34.2",
     "@auth/drizzle-adapter": "^1.4.2",
     "@t3-oss/env-nextjs": "^0.11.1",

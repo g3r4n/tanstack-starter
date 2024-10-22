@@ -5,9 +5,10 @@ import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import Google from "next-auth/providers/google";
 
 import { db } from "@acme/db/client";
-import { Account, Session, User } from "@acme/db/schema";
+import { Account, Session, User, VerificationTokens } from "@acme/db/schema";
 
 import { env } from "../env";
+import EmailProvider from "./provider/EmailProvider";
 
 declare module "next-auth" {
   interface Session {
@@ -21,6 +22,7 @@ const adapter = DrizzleAdapter(db, {
   usersTable: User,
   accountsTable: Account,
   sessionsTable: Session,
+  verificationTokensTable: VerificationTokens,
 });
 
 export const isSecureContext = env.NODE_ENV !== "development";
@@ -42,6 +44,7 @@ export const authConfig = {
       clientId: env.AUTH_GOOGLE_ID,
       clientSecret: env.AUTH_GOOGLE_SECRET,
     }),
+    EmailProvider({}),
   ],
   callbacks: {
     session: (opts) => {
