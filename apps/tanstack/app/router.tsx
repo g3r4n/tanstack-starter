@@ -34,6 +34,17 @@ export function createRouter() {
         </trpc.Provider>
       </SessionProvider>
     ),
+    defaultNotFoundComponent: () => {
+      return <p>This page doesn't exist!</p>;
+    },
+    defaultErrorComponent: (error) => {
+      return (
+        <div>
+          <span>An error occured</span>
+          <p>{JSON.stringify(error)}</p>
+        </div>
+      );
+    },
   });
 
   return router;
