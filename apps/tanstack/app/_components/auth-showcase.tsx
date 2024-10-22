@@ -25,7 +25,7 @@ export function AuthShowcase() {
         <Button
           size="lg"
           onClick={() => {
-            signIn("emailProvider", {}, { email: "enguerrand@des-vaux.fr" });
+            signIn("emailProvider", { email: "enguerrand@des-vaux.fr" });
           }}
         >
           {t("Sign in with magic link")}
