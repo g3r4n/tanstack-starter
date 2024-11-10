@@ -11,8 +11,10 @@ import {
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
+import { id } from "../../utils";
+
 export const Post = pgTable("post", {
-  id: uuid("id").notNull().primaryKey().defaultRandom(),
+  id: id().primaryKey(),
   title: varchar("name", { length: 256 }).notNull(),
   content: text("content").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
@@ -32,7 +34,7 @@ export const CreatePostSchema = createInsertSchema(Post, {
 });
 
 export const User = pgTable("user", {
-  id: uuid("id").notNull().primaryKey().defaultRandom(),
+  id: id().primaryKey(),
   name: varchar("name", { length: 255 }),
   email: varchar("email", { length: 255 }).notNull(),
   emailVerified: timestamp("emailVerified", {

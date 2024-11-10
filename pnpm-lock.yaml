@@ -314,7 +314,7 @@ importers:
         version: 1.2.1
       next-auth:
         specifier: 5.0.0-beta.20
-        version: 5.0.0-beta.20(next@14.2.5(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+        version: 5.0.0-beta.20(next@14.2.5(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       react:
         specifier: catalog:react18
         version: 18.3.1
@@ -449,7 +449,7 @@ importers:
         version: 0.11.1(typescript@5.5.4)(zod@3.23.8)
       next-auth:
         specifier: 5.0.0-beta.20
-        version: 5.0.0-beta.20(next@14.2.5(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+        version: 5.0.0-beta.20(next@14.2.5(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       react:
         specifier: catalog:react18
         version: 18.3.1
@@ -481,6 +481,9 @@ importers:
 
   packages/db:
     dependencies:
+      '@paralleldrive/cuid2':
+        specifier: 2.2.2
+        version: 2.2.2
       drizzle-orm:
         specifier: ^0.33.0
         version: 0.33.0(@neondatabase/serverless@0.9.4)(@opentelemetry/api@1.9.0)(@planetscale/database@1.19.0)(@types/pg@8.11.6)(@types/react@18.3.11)(@vercel/postgres@0.9.0)(mysql2@3.11.0)(postgres@3.4.4)(react@18.3.1)
@@ -621,7 +624,7 @@ importers:
         version: 7.35.0(eslint@9.9.0(jiti@1.21.6))
       eslint-plugin-react-hooks:
         specifier: rc
-        version: 5.1.0-rc-69d4b800-20241021(eslint@9.9.0(jiti@1.21.6))
+        version: 5.1.0-rc-45804af1-20241021(eslint@9.9.0(jiti@1.21.6))
       eslint-plugin-turbo:
         specifier: ^2.1.1
         version: 2.1.1(eslint@9.9.0(jiti@1.21.6))
@@ -2895,6 +2898,10 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@noble/hashes@1.5.0':
+    resolution: {integrity: sha512-1j6kQFb7QRru7eKN3ZDvRcP13rugwdxZqCjbiAVZfIJwgj2A65UmT4TgARXGlXgnRkORLTDTrO19ZErt7+QXgA==}
+    engines: {node: ^14.21.3 || >=16}
+
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
     engines: {node: '>= 8'}
@@ -3054,6 +3061,9 @@ packages:
 
   '@panva/hkdf@1.2.1':
     resolution: {integrity: sha512-6oclG6Y3PiDFcoyk8srjLfVKyMfVCKJ27JwNPViuXziFpmdz+MZnZN/aKY0JGXgYuO/VghU0jcOAZgWXZ1Dmrw==}
+
+  '@paralleldrive/cuid2@2.2.2':
+    resolution: {integrity: sha512-ZOBkgDwEdoYVlSeRbYYXs0S9MejQofiVYoTbKzy/6GQa39/q5tQU2IX46+shYnUkpEl3wc+J6wRlar7r2EK2xA==}
 
   '@parcel/watcher-android-arm64@2.4.1':
     resolution: {integrity: sha512-LOi/WTbbh3aTn2RYddrO8pnapixAziFl6SMxHM69r3tvdSm94JtCenaKgk1GRg5FJ5wpMCpHeW+7yqPlvZv7kg==}
@@ -5751,8 +5761,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
 
-  eslint-plugin-react-hooks@5.1.0-rc-69d4b800-20241021:
-    resolution: {integrity: sha512-BlHwxPe59W888jvcwa2dRJXzJf2DWJm9ZMwlpaeobPzW1gaghptM+ISk/E2UK/PTVuDmdkuqZ4je/9v3QE99Gg==}
+  eslint-plugin-react-hooks@5.1.0-rc-45804af1-20241021:
+    resolution: {integrity: sha512-q8MQ4OQ0TYmKT6eS2ZObxmA+OvUrd27MN72zU5b3ib7Q+1I78C9aUzy1GelM8ttgkEkwSxE+qDBgV+K84tjt+Q==}
     engines: {node: '>=10'}
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
@@ -12350,6 +12360,8 @@ snapshots:
   '@next/swc-win32-x64-msvc@14.2.5':
     optional: true
 
+  '@noble/hashes@1.5.0': {}
+
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
       '@nodelib/fs.stat': 2.0.5
@@ -12551,6 +12563,10 @@ snapshots:
   '@opentelemetry/semantic-conventions@1.25.1': {}
 
   '@panva/hkdf@1.2.1': {}
+
+  '@paralleldrive/cuid2@2.2.2':
+    dependencies:
+      '@noble/hashes': 1.5.0
 
   '@parcel/watcher-android-arm64@2.4.1':
     optional: true
@@ -15859,7 +15875,7 @@ snapshots:
       safe-regex-test: 1.0.3
       string.prototype.includes: 2.0.0
 
-  eslint-plugin-react-hooks@5.1.0-rc-69d4b800-20241021(eslint@9.9.0(jiti@1.21.6)):
+  eslint-plugin-react-hooks@5.1.0-rc-45804af1-20241021(eslint@9.9.0(jiti@1.21.6)):
     dependencies:
       eslint: 9.9.0(jiti@1.21.6)
 
@@ -17919,7 +17935,7 @@ snapshots:
 
   netmask@2.0.2: {}
 
-  next-auth@5.0.0-beta.20(next@14.2.5(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1):
+  next-auth@5.0.0-beta.20(next@14.2.5(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1):
     dependencies:
       '@auth/core': 0.34.2
       next: 14.2.5(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)

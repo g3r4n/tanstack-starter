@@ -11,8 +11,8 @@ const env = createEnv({
 });
 
 export default {
-  schema: "./src/schema/public",
-  out: "./src/migrations/public",
+  schema: "src/schema/tenant",
+  out: "./src/migrations/tenants",
   dialect: "postgresql",
   dbCredentials: {
     url: env.DATABASE_URL,
