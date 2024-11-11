@@ -5,7 +5,6 @@ import {
   primaryKey,
   text,
   timestamp,
-  uuid,
   varchar,
 } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
@@ -51,7 +50,7 @@ export const UserRelations = relations(User, ({ many }) => ({
 export const Account = pgTable(
   "account",
   {
-    userId: uuid("userId")
+    userId: varchar("userId", { length: 128 })
       .notNull()
       .references(() => User.id, { onDelete: "cascade" }),
     type: varchar("type", { length: 255 })
@@ -80,7 +79,7 @@ export const AccountRelations = relations(Account, ({ one }) => ({
 
 export const Session = pgTable("session", {
   sessionToken: varchar("sessionToken", { length: 255 }).notNull().primaryKey(),
-  userId: uuid("userId")
+  userId: varchar("userId", { length: 128 })
     .notNull()
     .references(() => User.id, { onDelete: "cascade" }),
   expires: timestamp("expires", {

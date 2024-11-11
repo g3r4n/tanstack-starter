@@ -3,8 +3,6 @@ import { createId } from "@paralleldrive/cuid2";
 import { sql } from "drizzle-orm";
 import { pgSchema, pgTable, timestamp, varchar } from "drizzle-orm/pg-core";
 
-import { publicDb } from "./client";
-
 export const pgTenantSchema = (
   tenantId: string,
 ): Pick<ReturnType<typeof pgSchema>, "table"> => {
@@ -34,24 +32,4 @@ export function trackingFields() {
     }),
     deletedById: varchar("deletedBy", { length: 128 }),
   };
-}
-
-export function generateSchemaName(input: string): string {
-  // Remove non-alphanumeric characters and add - instead of
-  const sanitizedInput = input
-    .replace(/[^a-zA-Z0-9]/g, " ")
-    .trim()
-    .split(" ")
-    .join("-");
-  // schema name need to be 60 char max
-  return sanitizedInput.slice(0, 60);
-}
-
-export function createTenantSchema(
-  schemaName: string,
-  templateSchemaName = "template_schema",
-) {
-  return publicDb.execute(
-    sql.raw(`CREATE SCHEMA ${schemaName} LIKE ${templateSchemaName};`),
-  );
 }
