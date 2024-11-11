@@ -1,9 +1,10 @@
 import { sql } from "drizzle-orm/sql";
 
 import { publicDb } from "./client";
-import { migrateTenant } from "./migration";
+import { migrateTenant } from "./migration.utils";
 
 export * from "drizzle-orm/sql";
+
 export function generateSchemaName(input: string): string {
   // Remove non-alphanumeric characters and add _ instead of
   const sanitizedInput = input
