@@ -35,6 +35,14 @@
       "cache": false,
       "interactive": true
     },
+    "generate-migrations": {
+      "cache": false,
+      "interactive": true
+    },
+    "run-migrations": {
+      "cache": false,
+      "interactive": true
+    },
     "studio": {
       "cache": false,
       "persistent": true

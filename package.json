@@ -10,6 +10,8 @@
     "clean": "git clean -xdf node_modules",
     "clean:workspaces": "turbo run clean",
     "db:push": "turbo -F @acme/db push",
+    "db:generate-migrations": "turbo -F @acme/db generate-migrations",
+    "db:run-migrations": "turbo -F @acme/db run-migrations",
     "db:studio": "turbo -F @acme/db studio",
     "dev": "turbo watch dev --continue",
     "dev:tanstack": "turbo watch dev -F @acme/tanstack...",
